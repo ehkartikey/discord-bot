@@ -8,14 +8,14 @@ Client.on('ready', () => {
 })
 
 Client.on('message', message => {
-  if (message.author === Client.user) {
+  if (message.author !== Client.user) return;
     if (message.content.startsWith(`${prefix}ping`)) {
       message.channel.send('Pong!');
     }
     if (message.content.startsWith(`${prefix}birthday`)) {
       message.channel.send('...')
     }
-  }
+  
 })
 
 Client.login(process.env.TOKEN)
